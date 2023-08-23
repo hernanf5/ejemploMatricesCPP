@@ -37,19 +37,20 @@ int main(){
     {   
         int posI;
         int posJ;
-        int menor = 100;
+        int menor = 101;
         int auxiliar;
-        for (int i = 0; i < filas; i++)
-            {
-                for (int j = 0; j < columnas; j++)
-                    {
-                        if(matriz[i][j]<menor){
+        //inicializo a i con el valor k/filas para que no recorra toda la matriz cada vez que itera (también se puede hacer con i=0)
+        for (int i = k/filas; i < filas; i++)
+        {
+                for (int j = 0; j < columnas; j++){
+                    /*agrego una segunda condición, la cual evalúa la posición del valor menor encontrado con respecto a la posición actual 
+                    que se esta analizando*/
+                    if(matriz[i][j]<menor && i*10 + j >= (k/filas*10 + k%columnas)) {
                         menor = matriz[i][j];
                         posI = i;
                         posJ = j; 
                     }
-                    
-            }
+                }
         
         }
         auxiliar = matriz[k/filas][k%columnas];
@@ -67,7 +68,4 @@ int main(){
         }
         cout <<endl;
     }
-    
-    
-
 }
